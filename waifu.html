@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Waifu Sagara — Portfolio</title>
+  <meta name="description" content="Sagara's waifus gallery and biodata. Lots of buttons & animations." />
+  <style>
+    :root{
+      --bg:#0f1226; --card:#111426; --accent:#ff66b3; --muted:#98a0c0;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:Inter,ui-sans-serif,system-ui,Segoe UI,Roboto,Arial;
+      color:#e6eef8;
+      background:radial-gradient(1200px 600px at 10% 10%, #11132a 0%, var(--bg) 40%);
+    }
+
+    header{
+      padding:28px 36px;
+      display:flex;
+      gap:24px;
+      align-items:center;
+      justify-content:space-between;
+    }
+
+    .brand{
+      display:flex;
+      gap:16px;
+      align-items:center;
+    }
+
+    /* 🌟 Logo custom dengan neon glow */
+    .logo{
+      width:80px;
+      height:48px;
+      border-radius:12px;
+      background:url('roxy.jpg') center/cover no-repeat;
+      position:relative;
+      box-shadow:0 0 12px #ff66b3, 0 0 24px #7b61ff;
+      animation:glow 3s ease-in-out infinite alternate;
+    }
+
+    @keyframes glow{
+      0%{box-shadow:0 0 6px #ff66b3,0 0 12px #7b61ff;}
+      100%{box-shadow:0 0 20px #ff66b3,0 0 40px #7b61ff;}
+    }
+
+    h1{margin:0;font-size:20px}
+
+    nav{display:flex;gap:10px}
+    button.btn{
+      background:transparent;
+      border:1px solid rgba(255,255,255,.06);
+      padding:8px 12px;
+      border-radius:12px;
+      color:var(--muted);
+      cursor:pointer;
+      backdrop-filter:blur(4px);
+      transition:all .22s;
+    }
+    button.btn:hover{
+      transform:translateY(-4px);
+      color:white;
+      border-color:rgba(255,255,255,.12);
+    }
+
+    .container{
+      display:grid;
+      grid-template-columns:1fr 1.2fr 1fr;
+      gap:20px;
+      padding:28px 36px;
+    }
+    @media (max-width:980px){.container{grid-template-columns:1fr;}}
+
+    .panel{
+      background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.01));
+      padding:18px;
+      border-radius:16px;
+      border:1px solid rgba(255,255,255,.04);
+      box-shadow:0 8px 30px rgba(2,4,23,.6);
+    }
+
+    .intro p{color:var(--muted);line-height:1.55;margin:12px 0}
+
+    .controls{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+    .big{padding:12px 16px;border-radius:14px}
+    .ghost{background:transparent;border:1px dashed rgba(255,255,255,.05)}
+
+    /* 🎴 Gallery */
+    .gallery{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+    .card{border-radius:12px;overflow:hidden;position:relative}
+    .card img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .7s}
+    .card:hover img{transform:scale(1.06)}
+    .tag{
+      position:absolute;
+      left:10px;
+      bottom:10px;
+      background:linear-gradient(90deg,rgba(0,0,0,.45), rgba(0,0,0,.2));
+      padding:6px 10px;
+      border-radius:999px;
+      font-size:12px;
+      color:#fff;
+    }
+
+    /* 📋 Biodata */
+    .bio-list{display:flex;flex-direction:column;gap:12px}
+    .bio{
+      display:flex;
+      gap:12px;
+      align-items:center;
+      padding:10px;
+      background:linear-gradient(180deg, rgba(255,255,255,.01), transparent);
+      border-radius:10px;
+    }
+    .avatar{width:64px;height:92px;border-radius:8px;overflow:hidden;flex:0 0 64px}
+    .avatar img{width:100%;height:100%;object-fit:cover}
+    .meta h4{margin:0 0 4px 0;font-size:15px}
+    .meta p{margin:0;color:var(--muted);font-size:13px}
+
+    .fab{
+      position:fixed;
+      right:22px;
+      bottom:22px;
+      width:64px;
+      height:64px;
+      border-radius:18px;
+      background:linear-gradient(135deg,#ff6bbd,#7b61ff);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:white;
+      font-weight:700;
+      box-shadow:0 20px 40px rgba(123,97,255,.16);
+      cursor:pointer;
+    }
+
+    .pulse{
+      position:absolute;
+      inset:0;
+      border-radius:18px;
+      animation:pulse 2.6s infinite;
+      opacity:.28;
+    }
+
+    @keyframes pulse{
+      0%{transform:scale(.9)}
+      50%{transform:scale(1.08)}
+      100%{transform:scale(.9)}
+    }
+
+    .chip{display:inline-flex;gap:8px;align-items:center;padding:8px 10px;border-radius:999px;background:rgba(255,255,255,.02);font-size:13px;color:var(--muted)}
+
+    footer{padding:18px 36px;color:var(--muted);display:flex;justify-content:space-between}
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="brand">
+      <div class="logo"></div>
+      <div>
+        <h1>Waifu Sagara</h1>
+        <div class="chip">A designer and collector of character muses</div>
+      </div>
+    </div>
+
+    <nav>
+      <button class="btn">Home</button>
+      <button class="btn">Gallery</button>
+      <button class="btn">Biodata</button>
+      <button class="btn">Contact</button>
+    </nav>
+  </header>
+
+  <main class="container">
+    <!-- Paragraf 1: Pengenalan -->
+    <section class="panel intro">
+      <h3>Introduction</h3>
+      <p><strong>Sagara</strong> adalah seorang desainer yang menemukan inspirasi dari karakter-karakter fiktif kesayangannya — lima waifu yang membentuk gaya dan warna dalam setiap karyanya. Mereka bukan hanya sosok imajinatif, tapi simbol ide dan estetika yang hidup di dalam desainnya.</p>
+      <p>Sagara percaya bahwa setiap waifu memiliki aura dan energi tersendiri, yang dapat diterjemahkan menjadi elemen desain — dari warna, bentuk, hingga ritme visual. Hal ini membuat setiap karya terasa unik dan penuh kepribadian.</p>
+      <p>Di bawah ini kamu akan menemukan foto-foto mereka, analisis singkat, serta biodata lengkap yang menggambarkan karakter masing-masing waifu.</p>
+
+      <div class="controls">
+        <button class="btn big" onclick="shuffleGallery()">Shuffle Gallery</button>
+        <button class="btn big ghost" onclick="toggleAnalysis()">Toggle analysis</button>
+        <button class="btn big" onclick="toggleBio()">Toggle biodata</button>
+        <button class="btn big" onclick="downloadMock()">Export moodboard</button>
+        <button class="btn big" onclick="randomizeTheme()">Random theme</button>
+      </div>
+    </section>
+
+    <!-- Paragraf 2: Foto & Analisis -->
+    <section class="panel">
+      <h3>Gallery & Analysis</h3>
+      <div class="gallery" id="gallery">
+        <div class="card"><img src="roxy.jpg" alt="Roxy"><div class="tag">Roxy — Calm mage</div></div>
+        <div class="card"><img src="hutao.jpg" alt="Hu Tao"><div class="tag">Hu Tao — Playful chaos</div></div>
+        <div class="card"><img src="silpi.jpg" alt="Sylphia"><div class="tag">Sylphia — Noble & sly</div></div>
+        <div class="card"><img src="tio.jpg" alt="Tio"><div class="tag">Tio — Protective strength</div></div>
+        <div class="card"><img src="arle.jpg" alt="Arlecchino"><div class="tag">Arlecchino — Theatrical flame</div></div>
+      </div>
+
+      <div id="analysis" style="margin-top:14px;color:var(--muted);">
+        <h4>Quick analysis</h4>
+        <p><strong>Roxy Migurdia</strong> — archetype: mentor. Desain dengan tone biru tenang dan cahaya lembut.</p>
+        <p><strong>Hu Tao</strong> — archetype: chaos. Gunakan warna kontras, merah-ungu, dan animasi gesit.</p>
+        <p><strong>Sylphia Langlis</strong> — archetype: bangsawan elegan. Gaya klasik, berbingkai, lembut.</p>
+        <p><strong>Tio</strong> — archetype: pelindung kuat. Gunakan bentuk tegas dan shadow dalam.</p>
+        <p><strong>Arlecchino</strong> — archetype: performer. Visual glitch, asimetris, dan penuh energi.</p>
+      </div>
+    </section>
+
+    <!-- Paragraf 3: Biodata -->
+    <aside class="panel">
+      <h3>Biodata</h3>
+      <div class="bio-list" id="biodata">
+        <div class="bio"><div class="avatar"><img src="roxy.jpg"></div><div class="meta"><h4>Roxy Migurdia</h4><p>Asal: Mushoku Tensei • Role: Mage tutor • Likes: Buku, keheningan • Notes: mentor yang sabar dan bijak.</p></div></div>
+        <div class="bio"><div class="avatar"><img src="hutao.jpg"></div><div class="meta"><h4>Hu Tao</h4><p>Asal: Genshin Impact • Role: Mortician/Prankster • Likes: Teh, kelucuan • Notes: penuh energi dan misteri.</p></div></div>
+        <div class="bio"><div class="avatar"><img src="silpi.jpg"></div><div class="meta"><h4>Sylphia Langlis</h4><p>Asal: Tensei Shitara Dai Nana Ōji... • Role: Noble mage • Likes: Etika, keanggunan • Notes: berkelas dan tenang.</p></div></div>
+        <div class="bio"><div class="avatar"><img src="tio.jpg"></div><div class="meta"><h4>Tio</h4><p>Asal: Arifureta • Role: Warrior guardian • Likes: Perlindungan, kesetiaan • Notes: tangguh dan lembut hati.</p></div></div>
+        <div class="bio"><div class="avatar"><img src="arle.jpg"></div><div class="meta"><h4>Arlecchino</h4><p>Asal: Genshin Impact • Role: Harbinger • Likes: Teater, kekacauan • Notes: elegan dan berbahaya.</p></div></div>
+      </div>
+    </aside>
+  </main>
+
+  <div class="fab" onclick="openPlay()">
+    <div class="pulse"></div>
+    Play
+  </div>
+
+  <footer>
+    <div>Made by Sagara — interactive mockup</div>
+    <div style="opacity:.8">Replace placeholder files with your waifu images for full display</div>
+  </footer>
+
+  <script>
+    const gallery = document.getElementById('gallery');
+    function shuffleGallery(){
+      for(let i=gallery.children.length-1;i>0;i--){
+        const j=Math.floor(Math.random()*(i+1));
+        gallery.appendChild(gallery.children[j]);
+      }
+      flash('Gallery shuffled');
+    }
+    function toggleAnalysis(){
+      const a=document.getElementById('analysis');
+      a.style.display = (a.style.display==='none')? 'block':'none';
+    }
+    function toggleBio(){
+      const b=document.getElementById('biodata');
+      b.style.display = (b.style.display==='none')? 'flex':'none';
+    }
+    function downloadMock(){flash('Exported moodboard (mock)')}
+    function randomizeTheme(){
+      document.body.style.background = 'radial-gradient(1200px 600px at 80% 20%, #2a093b 0%, #071028 40%)';
+      flash('Theme randomized');
+    }
+    function copyBios(){
+      navigator.clipboard?.writeText(Array.from(document.querySelectorAll('.meta'))
+      .map(m=>m.innerText).join('\\n\\n')).then(()=>flash('Biodata copied'));
+    }
+    function openPlay(){flash('Play mode: buttons active')}
+    function flash(txt){
+      const el=document.createElement('div');
+      el.textContent=txt;
+      el.style.position='fixed';
+      el.style.left='50%';
+      el.style.top='20px';
+      el.style.transform='translateX(-50%)';
+      el.style.padding='10px 16px';
+      el.style.background='rgba(0,0,0,.6)';
+      el.style.color='white';
+      el.style.borderRadius='10px';
+      el.style.zIndex=9999;
+      document.body.appendChild(el);
+      setTimeout(()=>el.remove(),1400);
+    }
+  </script>
+</body>
+</html>
